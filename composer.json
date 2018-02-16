@@ -1,10 +1,15 @@
 {
-    "name":        "hampe/zurb-ink-bundle",
-    "type":        "symfony-bundle",
+    "name": "hampe/zurb-ink-bundle",
+    "type": "symfony-bundle",
     "description": "Creating email templates is hard. This Bundle provides help.",
-    "keywords":    ["email", "zurb", "ink", "template"],
-    "homepage":    "http://github.com/thampe/ZurbInkBundle",
-    "license":     "MIT",
+    "keywords": [
+        "email",
+        "zurb",
+        "ink",
+        "template"
+    ],
+    "homepage": "http://github.com/thampe/ZurbInkBundle",
+    "license": "MIT",
     "authors": [
         {
             "name": "Thomas Hampe",
@@ -24,6 +29,5 @@
             "Hampe\\Bundle\\ZurbInkBundle": ""
         }
     },
-
     "target-dir": "Hampe/Bundle/ZurbInkBundle"
 }
