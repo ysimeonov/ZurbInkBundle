@@ -1,6 +1,15 @@
 <?php
 
-namespace Hampe\ZurbInkBundle\Twig;
+/*
+ * This file is part of the zurb-ink-bundle package.
+ *
+ * (c) Marco Polichetti <gremo1982@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Gremo\ZurbInkBundle\Twig;
 
 use Twig_Node;
 
@@ -17,7 +26,7 @@ class InkyNode extends Twig_Node
     public function compile(\Twig_Compiler $compiler)
     {
         $extensionName = (version_compare(\Twig_Environment::VERSION, '1.26.0') >= 0) ?
-            'Hampe\ZurbInkBundle\Twig\InkyExtension'
+            'Gremo\ZurbInkBundle\Twig\InkyExtension'
             : InkyExtension::NAME
         ;
 
