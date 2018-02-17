@@ -27,11 +27,9 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
         $this->fileLocator = $fileLocator;
     }
 
-    public function getName()
-    {
-        return "zurb_ink.inlinecss";
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function getGlobals()
     {
         $cssContainer = new CssContainer();
@@ -43,29 +41,50 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction('includeStyles', array($this, 'includeStyles'))
+            new Twig_SimpleFunction('includeStyles', array($this, 'includeStyles')),
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getTokenParsers()
     {
         return array(
-            new InlineCssTokenParser()
+            new InlineCssTokenParser(),
         );
     }
 
+    /**
+     * @param mixed $styles
+     * @return string
+     */
     public function includeStyles($styles)
     {
-        $locator = $this->fileLocator;
-        $style = "";
-        foreach ($styles as $styleFile) {
-            $path = $locator->locate($styleFile);
-            $style .= "\n\n".file_get_contents($path);
+        if (is_string($styles)) {
+            $styles = array($styles);
         }
 
-        return $style;
+        $style = null;
+        foreach ($styles as $styleFile) {
+            $path = $this->fileLocator->locate($styleFile);
+            $style .= file_get_contents($path).PHP_EOL.PHP_EOL;
+        }
+
+        return (string) $style;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return "zurb_ink.inlinecss";
     }
 }

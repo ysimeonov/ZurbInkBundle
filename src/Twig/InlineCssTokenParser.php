@@ -16,30 +16,35 @@ use Twig_TokenParser;
 
 class InlineCssTokenParser extends Twig_TokenParser
 {
-
-    public function __construct()
-    {
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function parse(Twig_Token $token)
     {
         $parser = $this->parser;
         $stream = $parser->getStream();
 
         $stream->expect(Twig_Token::BLOCK_END_TYPE);
-        $html = $this->parser->subparse(array($this, 'decideEnd'), true);
+        $html = $this->parser->subparse(array($this, 'decideBlockEnd'), true);
         $stream->expect(Twig_Token::BLOCK_END_TYPE);
 
         return new InlineCssNode($html, $token->getLine(), $this->getTag());
     }
 
+    /**
+     * @param Twig_Token $token
+     * @return bool
+     */
+    public function decideBlockEnd(Twig_Token $token)
+    {
+        return $token->test('endinlinestyle');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getTag()
     {
         return "inlinestyle";
-    }
-
-    public function decideEnd(Twig_Token $token)
-    {
-        return $token->test('endinlinestyle');
     }
 }

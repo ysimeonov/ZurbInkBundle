@@ -15,8 +15,6 @@ use Twig_Token;
 
 class InkyTokenParser extends \Twig_TokenParser
 {
-    const TAG = 'inky';
-
     /**
      * {@inheritdoc}
      */
@@ -24,10 +22,19 @@ class InkyTokenParser extends \Twig_TokenParser
     {
         $lineno = $token->getLine();
         $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
-        $body = $this->parser->subparse(array($this, 'decideInkyEnd'), true);
+        $body = $this->parser->subparse(array($this, 'decideBlockEnd'), true);
         $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
 
         return new InkyNode($body, $lineno, $this->getTag());
+    }
+
+    /**
+     * @param Twig_Token $token
+     * @return bool
+     */
+    public function decideBlockEnd(\Twig_Token $token)
+    {
+        return $token->test('endinky');
     }
 
     /**
@@ -35,11 +42,6 @@ class InkyTokenParser extends \Twig_TokenParser
      */
     public function getTag()
     {
-        return self::TAG;
-    }
-
-    public function decideInkyEnd(\Twig_Token $token)
-    {
-        return $token->test('end'.self::TAG);
+        return 'inky';
     }
 }

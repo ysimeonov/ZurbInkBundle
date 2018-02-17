@@ -17,9 +17,6 @@ class InkyExtension extends \Twig_Extension
 {
     const NAME = 'zurb_ink.inky';
 
-    /**
-     * @var Inky
-     */
     protected $inky;
 
     public function __construct(Inky $inky)
@@ -27,20 +24,30 @@ class InkyExtension extends \Twig_Extension
         $this->inky = $inky;
     }
 
-    public function getName()
-    {
-        return self::NAME;
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function getTokenParsers()
     {
         return array(
-            new InkyTokenParser()
+            new InkyTokenParser(),
         );
     }
 
+    /**
+     * @param string $html
+     * @return string
+     */
     public function parse($html)
     {
         return $this->inky->releaseTheKraken($html);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return self::NAME;
     }
 }
