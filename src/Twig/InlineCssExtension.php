@@ -21,11 +21,13 @@ use Twig_SimpleFunction;
 class InlineCssExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
 {
     protected $inlineCss;
+    protected $cssContainer;
     protected $fileLocator;
 
-    public function __construct(InlineCss $inlineCss, FileLocatorInterface $fileLocator)
+    public function __construct(InlineCss $inlineCss, CssContainer $cssContainer, FileLocatorInterface $fileLocator)
     {
         $this->inlineCss = $inlineCss;
+        $this->cssContainer = $cssContainer;
         $this->fileLocator = $fileLocator;
     }
 
@@ -34,12 +36,10 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
      */
     public function getGlobals()
     {
-        $cssContainer = new CssContainer();
-
         return array(
             "zurb_ink_inlinecss" => $this->inlineCss,
             "zurb_ink_locator" => $this->fileLocator,
-            "zurb_ink_styles" => $cssContainer
+            "zurb_ink_styles" => $this->cssContainer,
         );
     }
 
