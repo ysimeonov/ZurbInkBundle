@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hampe\\Bundle\\ZurbInkBundle\\": ""
+            "Hampe\\Bundle\\ZurbInkBundle\\": "src/"
         }
     }
 }
