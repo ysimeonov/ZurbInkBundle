@@ -1,15 +1,9 @@
 <?php
-/**
- * symfony
- * User: thomas
- * Date: 20.11.13
- * Time: 18:05
- */
 
 namespace Hampe\Bundle\ZurbInkBundle\Twig;
 
-use \Twig_Token;
-use \Twig_TokenParser;
+use Twig_Token;
+use Twig_TokenParser;
 
 class InlineCssTokenParser extends Twig_TokenParser
 {
@@ -28,7 +22,6 @@ class InlineCssTokenParser extends Twig_TokenParser
         $stream->expect(Twig_Token::BLOCK_END_TYPE);
 
         return new InlineCssNode($html, $token->getLine(), $this->getTag());
-
     }
 
     public function getTag()

@@ -1,25 +1,11 @@
 <?php
-/**
- *  InkyExtension.php
- *
- *
- *  @license    see LICENSE File
- *  @filename   InkyExtension.php
- *  @package    symfony-2.8
- *  @author     Thomas Hampe <thomas@hampe.co>
- *  @copyright  2013-2016 Thomas Hampe
- *  @date       16.04.16
- */ 
-
 
 namespace Hampe\Bundle\ZurbInkBundle\Twig;
-
 
 use Hampe\Inky\Inky;
 
 class InkyExtension extends \Twig_Extension
 {
-
     const NAME = 'zurb_ink.inky';
 
     /**
@@ -48,5 +34,4 @@ class InkyExtension extends \Twig_Extension
     {
         return $this->inky->releaseTheKraken($html);
     }
-
 }

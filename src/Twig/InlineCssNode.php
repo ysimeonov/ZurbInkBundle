@@ -1,15 +1,9 @@
 <?php
-/**
- * symfony
- * User: thomas
- * Date: 20.11.13
- * Time: 18:24
- */
 
 namespace Hampe\Bundle\ZurbInkBundle\Twig;
 
-use \Twig_Node;
-use \Twig_Compiler;
+use Twig_Compiler;
+use Twig_Node;
 
 class InlineCssNode extends Twig_Node
 {
@@ -34,6 +28,5 @@ class InlineCssNode extends Twig_Node
             ->write('echo $context["zurb_ink_inlinecss"]->convert();')
             ->write('$context["zurb_ink_styles"]->removeAll();')
         ;
-
     }
 }

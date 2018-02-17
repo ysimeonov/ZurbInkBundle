@@ -1,25 +1,16 @@
 <?php
-/**
- * symfony
- * User: thomas
- * Date: 20.11.13
- * Time: 17:59
- */
 
 namespace Hampe\Bundle\ZurbInkBundle\Twig;
 
 use Hampe\Bundle\ZurbInkBundle\Service\CssContainer;
-use \Twig_Extension;
-use \Twig_Extension_GlobalsInterface;
-use \Twig_SimpleFunction;
+use Twig_Extension;
+use Twig_Extension_GlobalsInterface;
+use Twig_SimpleFunction;
 
 class InlineCssExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
 {
-
     protected $inlineCss;
-
     protected $fileLocator;
-
 
     public function __construct($inlineCss, $fileLocator)
     {
@@ -41,7 +32,6 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
             "zurb_ink_locator" => $this->fileLocator,
             "zurb_ink_styles" => $cssContainer
         );
-
     }
 
     public function getFunctions()
@@ -58,7 +48,7 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
         );
     }
 
-    public function includeStyles ($styles)
+    public function includeStyles($styles)
     {
         $locator = $this->fileLocator;
         $style = "";
