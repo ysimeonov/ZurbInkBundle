@@ -37,8 +37,6 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
     public function getGlobals()
     {
         return array(
-            "zurb_ink_inlinecss" => $this->inlineCss,
-            "zurb_ink_locator" => $this->fileLocator,
             "zurb_ink_styles" => $this->cssContainer,
         );
     }
@@ -80,6 +78,25 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
         }
 
         return (string) $style;
+    }
+
+    /**
+     * Inlines all collected CSS into the passed HTML and returns the inlined HTML
+     *
+     * @param string $html
+     * @return string
+     */
+    public function inlineStyles($html)
+    {
+        $css = null;
+        foreach ($this->cssContainer as $pathname) {
+            $css .= file_get_contents($this->fileLocator->locate($pathname)).PHP_EOL.PHP_EOL;
+        }
+
+        $this->inlineCss->setHtml($html);
+        $this->inlineCss->setCss($css);
+
+        return $this->inlineCss->convert();
     }
 
     /**
