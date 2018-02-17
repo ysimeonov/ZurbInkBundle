@@ -16,9 +16,9 @@ use Twig_Node;
 
 class InlineCssNode extends Twig_Node
 {
-    public function __construct($html, $line = 0, $tag = 'inlinestyle')
+    public function __construct(Twig_Node $html, $lineno = 0, $tag = 'inlinestyle')
     {
-        parent::__construct(array('html' => $html), array(), $line, $tag);
+        parent::__construct(array('html' => $html), array(), $lineno, $tag);
     }
 
     /**

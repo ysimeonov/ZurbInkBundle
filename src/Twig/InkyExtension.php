@@ -38,7 +38,7 @@ class InkyExtension extends \Twig_Extension
      * @param string $html
      * @return string
      */
-    public function parse($html)
+    public function transpile($html)
     {
         return $this->inky->releaseTheKraken($html);
     }

@@ -11,11 +11,13 @@
 
 namespace Gremo\ZurbInkBundle\Twig;
 
+use Twig_Compiler;
+use Twig_Environment;
 use Twig_Node;
 
 class InkyNode extends Twig_Node
 {
-    public function __construct(\Twig_Node $body, $lineno, $tag = 'inky')
+    public function __construct(Twig_Node $body, $lineno = 0, $tag = 'inky')
     {
         parent::__construct(array('body' => $body), array(), $lineno, $tag);
     }
@@ -23,10 +25,10 @@ class InkyNode extends Twig_Node
     /**
      * {@inheritdoc}
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(Twig_Compiler $compiler)
     {
-        $extensionName = (version_compare(\Twig_Environment::VERSION, '1.26.0') >= 0) ?
-            'Gremo\ZurbInkBundle\Twig\InkyExtension'
+        $extensionName = (version_compare(Twig_Environment::VERSION, '1.26.0') >= 0)
+            ? 'Gremo\ZurbInkBundle\Twig\InkyExtension'
             : InkyExtension::NAME
         ;
 
@@ -34,7 +36,7 @@ class InkyNode extends Twig_Node
             ->addDebugInfo($this)
             ->write('ob_start();' . PHP_EOL)
             ->subcompile($this->getNode('body'))
-            ->write('$inkyHtml = ob_get_clean();' . PHP_EOL)
-            ->write("echo \$this->env->getExtension('{$extensionName}')->parse(\$inkyHtml);" . PHP_EOL);
+            ->write('$contents = ob_get_clean();' . PHP_EOL)
+            ->write("echo \$this->env->getExtension('{$extensionName}')->transpile(\$contents);" . PHP_EOL);
     }
 }
