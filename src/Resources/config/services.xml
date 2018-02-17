@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="zurb_ink.inlinecss" class="Hampe\Bundle\ZurbInkBundle\Service\InlineCss" />
+        <service id="zurb_ink.inlinecss.twig" class="Hampe\Bundle\ZurbInkBundle\Twig\InlineCssExtension">
+            <tag name="twig.extension" />
+            <argument type="service" id="zurb_ink.inlinecss" />
+            <argument type="service" id="file_locator" />
+        </service>
+        <service id="zurb_ink.inky" class="Hampe\Inky\Inky">
+            <argument>12</argument>
+            <argument type="collection" />
+        </service>
+        <service id="zurb_ink.inky.twig" class="Hampe\Bundle\ZurbInkBundle\Twig\InkyExtension">
+            <tag name="twig.extension" />
+            <argument type="service" id="zurb_ink.inky" />
+        </service>
+    </services>
+</container>
