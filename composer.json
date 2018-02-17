@@ -25,9 +25,8 @@
         "twig/twig": "^1.23 || ^2.0"
     },
     "autoload": {
-        "psr-0": {
-            "Hampe\\Bundle\\ZurbInkBundle": ""
+        "psr-4": {
+            "Hampe\\Bundle\\ZurbInkBundle\\": ""
         }
-    },
-    "target-dir": "Hampe/Bundle/ZurbInkBundle"
+    }
 }
