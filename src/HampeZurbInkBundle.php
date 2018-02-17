@@ -1,6 +1,6 @@
 <?php
 
-namespace Hampe\Bundle\ZurbInkBundle;
+namespace Hampe\ZurbInkBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

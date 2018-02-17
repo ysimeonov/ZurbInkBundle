@@ -1,6 +1,6 @@
 <?php
 
-namespace Hampe\Bundle\ZurbInkBundle\DependencyInjection;
+namespace Hampe\ZurbInkBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

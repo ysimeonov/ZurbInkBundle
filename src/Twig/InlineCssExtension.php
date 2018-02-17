@@ -1,8 +1,8 @@
 <?php
 
-namespace Hampe\Bundle\ZurbInkBundle\Twig;
+namespace Hampe\ZurbInkBundle\Twig;
 
-use Hampe\Bundle\ZurbInkBundle\Service\CssContainer;
+use Hampe\ZurbInkBundle\Service\CssContainer;
 use Twig_Extension;
 use Twig_Extension_GlobalsInterface;
 use Twig_SimpleFunction;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hampe\Bundle\ZurbInkBundle\Service;
+namespace Hampe\ZurbInkBundle\Service;
 
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 

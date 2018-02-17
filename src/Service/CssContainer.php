@@ -1,6 +1,6 @@
 <?php
 
-namespace Hampe\Bundle\ZurbInkBundle\Service;
+namespace Hampe\ZurbInkBundle\Service;
 
 class CssContainer implements \IteratorAggregate
 {

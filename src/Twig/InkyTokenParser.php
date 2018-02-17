@@ -1,6 +1,6 @@
 <?php
 
-namespace Hampe\Bundle\ZurbInkBundle\Twig;
+namespace Hampe\ZurbInkBundle\Twig;
 
 use Twig_Token;
 
