@@ -5,6 +5,10 @@ Creating email templates is hard. This Symfony Bundle provides help.
 
 The original bundle [thampe/ZurbInkBundle](https://github.com/thampe/ZurbInkBundle) is abandoned. This fork is under development and aims to provide maintained version of the original project.
 
+**Important**: this README will be in sync with master branch. Examples **may not reflect** the actual usage of this bundle.
+
+Latest tag compatible with with the original bundle is [v2.3.1](https://github.com/gremo/ZurbInkBundle/blob/v2.3.1/README.md).
+
 ## Installation
 Install the bundle via composer:
 
