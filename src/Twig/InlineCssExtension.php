@@ -12,6 +12,8 @@
 namespace Gremo\ZurbInkBundle\Twig;
 
 use Gremo\ZurbInkBundle\Service\CssContainer;
+use Gremo\ZurbInkBundle\Service\InlineCss;
+use Symfony\Component\Config\FileLocatorInterface;
 use Twig_Extension;
 use Twig_Extension_GlobalsInterface;
 use Twig_SimpleFunction;
@@ -21,7 +23,7 @@ class InlineCssExtension extends Twig_Extension implements Twig_Extension_Global
     protected $inlineCss;
     protected $fileLocator;
 
-    public function __construct($inlineCss, $fileLocator)
+    public function __construct(InlineCss $inlineCss, FileLocatorInterface $fileLocator)
     {
         $this->inlineCss = $inlineCss;
         $this->fileLocator = $fileLocator;
