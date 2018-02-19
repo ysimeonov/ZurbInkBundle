@@ -1,0 +1,25 @@
+{#
+
+This file is part of the zurb-ink-bundle package.
+
+(c) Marco Polichetti <gremo1982@gmail.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends '@GremoZurbInk/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ zurb_ink_add_stylesheet('@GremoZurbInkBundle/Resources/public/vendor/foundation-emails/dist/foundation-emails.min.css') }}
+    {% autoescape false %}
+        {% block additional_stylesheets %}{% endblock %}
+    {% endautoescape %}
+{% endblock %}
+
+{% block body %}
+    {% inky %}
+        {% block content %}{% endblock %}
+    {% endinky %}
+{% endblock %}

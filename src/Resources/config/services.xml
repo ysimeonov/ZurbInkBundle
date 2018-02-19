@@ -3,19 +3,18 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="zurb_ink.inlinecss" class="Gremo\ZurbInkBundle\Service\InlineCss" />
-        <service id="zurb_ink.inlinecss.twig" class="Gremo\ZurbInkBundle\Twig\InlineCssExtension">
+        <service id="gremo_zurb_ink.util.html_utils" class="Gremo\ZurbInkBundle\Util\HtmlUtils" public="false">
+            <argument type="service">
+                <service class="TijsVerkoyen\CssToInlineStyles\CssToInlineStyles" />
+            </argument>
+            <argument type="service">
+                <service class="Hampe\Inky\Inky" />
+            </argument>
+        </service>
+        <service id="gremo_zurb_ink.twig_extension" class="Gremo\ZurbInkBundle\Twig\GremoZurbInkExtension" public="false">
             <tag name="twig.extension" />
-            <argument type="service" id="zurb_ink.inlinecss" />
+            <argument type="service" id="gremo_zurb_ink.util.html_utils" />
             <argument type="service" id="file_locator" />
-        </service>
-        <service id="zurb_ink.inky" class="Hampe\Inky\Inky">
-            <argument>12</argument>
-            <argument type="collection" />
-        </service>
-        <service id="zurb_ink.inky.twig" class="Gremo\ZurbInkBundle\Twig\InkyExtension">
-            <tag name="twig.extension" />
-            <argument type="service" id="zurb_ink.inky" />
         </service>
     </services>
 </container>

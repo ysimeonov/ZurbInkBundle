@@ -1,0 +1,8 @@
+{
+  "name": "gremo-zurb-ink",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "foundation-emails": "^2.2.1"
+  }
+}
