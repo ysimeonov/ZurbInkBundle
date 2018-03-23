@@ -36,13 +36,17 @@ class HtmlUtils
             $css = implode(PHP_EOL, $css);
         }
 
-        $this->cssToInlineStyles->setHTML($html);
-        $this->cssToInlineStyles->setCSS($css);
+        if (method_exists($this->cssToInlineStyles, 'setHTML')) {
+            $this->cssToInlineStyles->setHTML($html);
+            $this->cssToInlineStyles->setCSS($css);
 
-        $contents = $this->cssToInlineStyles->convert();
+            $contents = $this->cssToInlineStyles->convert();
 
-        // Reset CSS (in order to clean the parsed CSS rules)
-        $this->cssToInlineStyles->setCSS(null);
+            // Reset CSS (in order to clean the parsed CSS rules)
+            $this->cssToInlineStyles->setCSS(null);
+        } else {
+            $contents = $this->cssToInlineStyles->convert($html, $css);
+        }
 
         return $contents;
     }
