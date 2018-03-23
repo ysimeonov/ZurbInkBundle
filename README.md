@@ -78,10 +78,10 @@ Stylesheets can be added calling the `zurb_ink_add_stylesheet` Twig function ins
 {# ... #}
 
 {% block stylesheets %}
-	{{ parent() }}
+    {{ parent() }}
 
     {# Custom CSS (inlined only) #}
-	{{ zurb_ink_add_stylesheet('css/style.css') }}
+    {{ zurb_ink_add_stylesheet('css/style.css') }}
 {% endblock %}
 
 {# ... #}
@@ -90,18 +90,16 @@ Stylesheets can be added calling the `zurb_ink_add_stylesheet` Twig function ins
 By default this will **only inline the CSS**. Pass a truthy value as second argument to **both inline and output the CSS** into the `<style>` tag:
 
 ```twig
+{# ... #}
+
 {% block stylesheets %}
-	{{ parent() }}
+    {{ parent() }}
 
     <style type="text/css">
         {# Custom CSS (both inlined and outputted) #}
         {{ zurb_ink_add_stylesheet('@AppBundle/Resources/public/css/style.css', true) }}
     </style>
 {% endblock %}
+
+{# ... #}
 ```
-
-## Future plans
-
-- [ ] Use interfaces and adapters for services
-- [ ] Change implementation using bundle configuration
-- [ ] Add tests
