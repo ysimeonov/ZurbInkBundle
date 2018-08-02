@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^5.6.0 || ^7.0",
-        "lorenzo/pinky":"1.0.1",
+        "lorenzo/pinky":"^1.0",
         "symfony/framework-bundle": "^2.8 || ^3.3 || ^4.0",
         "tijsverkoyen/css-to-inline-styles": "^1.5 || ^2.0",
         "twig/twig": "^1.23 || ^2.0"
