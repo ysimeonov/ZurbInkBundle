@@ -7,9 +7,6 @@
             <argument type="service">
                 <service class="TijsVerkoyen\CssToInlineStyles\CssToInlineStyles" />
             </argument>
-            <argument type="service">
-                <service class="Hampe\Inky\Inky" />
-            </argument>
         </service>
         <service id="gremo_zurb_ink.twig_extension" class="Gremo\ZurbInkBundle\Twig\GremoZurbInkExtension" public="false">
             <tag name="twig.extension" />

@@ -11,18 +11,16 @@
 
 namespace Gremo\ZurbInkBundle\Util;
 
-use Hampe\Inky\Inky;
+use Pinky;
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class HtmlUtils
 {
     private $cssToInlineStyles;
-    private $inky;
 
-    public function __construct(CssToInlineStyles $cssToInlineStyles, Inky $inky)
+    public function __construct(CssToInlineStyles $cssToInlineStyles)
     {
         $this->cssToInlineStyles = $cssToInlineStyles;
-        $this->inky = $inky;
     }
 
     /**
@@ -57,6 +55,6 @@ class HtmlUtils
      */
     public function parseInky($content)
     {
-        return $this->inky->releaseTheKraken($content);
+        return Pinky\transformString($content)->saveHTML();
     }
 }
