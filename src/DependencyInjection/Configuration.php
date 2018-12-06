@@ -21,8 +21,11 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('grmeo_zurb_ink');
+        $treeBuilder = new TreeBuilder('grmeo_zurb_ink');
+        // Keep compatibility with symfony/config < 4.2
+        if (!method_exists($treeBuilder, 'getRootNode')) {
+            $treeBuilder->root('grmeo_zurb_ink');
+        }
 
         return $treeBuilder;
     }
