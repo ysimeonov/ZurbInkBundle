@@ -40,7 +40,6 @@ class InlineCssNode extends Twig_Node
             ->write("\$html = ob_get_clean();" . PHP_EOL)
             ->write("\$extension = \$this->env->getExtension('{$extensionName}');" . PHP_EOL)
             ->write("echo \$extension->inlineCss(\$html);" . PHP_EOL)
-            ->write("\$extension->removeStylesheet();" . PHP_EOL)
         ;
     }
 }
